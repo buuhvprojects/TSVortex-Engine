@@ -13,6 +13,9 @@
     "paths": {
       "@renderer/*": [
         "src/renderer/src/*"
+      ],
+      "@node/*":[
+        "node_modules/*"
       ]
     },
     "esModuleInterop": true,
