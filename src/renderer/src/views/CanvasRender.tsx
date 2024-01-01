@@ -11,6 +11,11 @@ function CanvasRender(): JSX.Element {
         }}>
             <Sky sunPosition={[100, 100, 20]} />
             <ambientLight intensity={1} />
+            
+            <mesh>
+                <boxGeometry args={[1, 1, 1]} />
+                <meshStandardMaterial color="hotpink" />
+            </mesh>
         </Canvas>
     )
 }
