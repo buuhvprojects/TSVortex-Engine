@@ -1,4 +1,4 @@
-import { Environment, OrbitControls, PerspectiveCamera, Sky } from "@react-three/drei";
+import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import Track from "@renderer/components/Game/Track";
 import { Suspense } from "react";
