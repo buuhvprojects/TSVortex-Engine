@@ -1,21 +1,28 @@
-import { Sky } from "@react-three/drei"
-import { Canvas } from "@react-three/fiber"
-import { useScene } from "@renderer/states/Context"
+import { Environment, OrbitControls, PerspectiveCamera, Sky } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import Track from "@renderer/components/Game/Track";
+import { Suspense } from "react";
 
 function CanvasRender(): JSX.Element {
-    const scene = useScene();
-
     return (
-        <Canvas style={styles} onCreated={(state) => {
-            scene.setCamera(state.camera);
-        }}>
-            <Sky sunPosition={[100, 100, 20]} />
-            <ambientLight intensity={1} />
-            
-            <mesh>
-                <boxGeometry args={[1, 1, 1]} />
-                <meshStandardMaterial color="hotpink" />
-            </mesh>
+        <Canvas style={styles}>
+            <Suspense fallback={null}>
+                <Sky sunPosition={[100, 10, 100]} />
+
+                <ambientLight intensity={1} position={[0, 0, 0]} />
+                <directionalLight intensity={2} position={[0, 100, 10]} />
+
+                <Track />
+
+                <PerspectiveCamera
+                    makeDefault
+                    position={[-6, 3.9, 6.21]}
+                    fov={40}
+                />
+                <OrbitControls
+                    target={[-2.64, -0.71, 0.03]}
+                />
+            </Suspense>
         </Canvas>
     )
 }
