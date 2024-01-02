@@ -7,10 +7,10 @@ function CanvasRender(): JSX.Element {
     return (
         <Canvas style={styles}>
             <Suspense fallback={null}>
-                <Sky sunPosition={[100, 10, 100]} />
-
-                <ambientLight intensity={1} position={[0, 0, 0]} />
-                <directionalLight intensity={2} position={[0, 100, 10]} />
+                <Environment
+                    files={'/assets/envmap.hdr'}
+                    background='only'
+                />
 
                 <Track />
 

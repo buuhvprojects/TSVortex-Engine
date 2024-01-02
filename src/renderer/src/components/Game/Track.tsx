@@ -1,6 +1,10 @@
 import { useGLTF, useTexture } from "@react-three/drei";
 import { useEffect } from "react";
 
+const getGeometry = (obj: THREE.Object3D) => {
+    return (obj.children[0] as THREE.Mesh).geometry;
+}
+
 export default function Track() {
     const obj = useGLTF('/assets/track.glb')
 
@@ -12,14 +16,9 @@ export default function Track() {
         texture.anisotropy = 16;
     }, [texture])
 
-    const geometry = (
-        obj.scene.children[0] as THREE.Mesh
-    ).geometry;
-
-
     return (
         <mesh>
-            <primitive object={geometry} attach={"geometry"} />
+            <primitive object={getGeometry(obj.scene)} attach={"geometry"} />
             <meshBasicMaterial map={texture} toneMapped={false} />
         </mesh>
     )
