@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import Track from "@renderer/components/Game/Track";
 import { Suspense } from "react";
 
-function CanvasRender(): JSX.Element {
+function Scene(): JSX.Element {
     return (
         <Canvas style={styles}>
             <Suspense fallback={null}>
@@ -27,7 +27,7 @@ function CanvasRender(): JSX.Element {
     )
 }
 
-export default CanvasRender;
+export default Scene;
 
 const styles: React.CSSProperties | undefined = {
     width: "100vw",

@@ -1,11 +1,11 @@
 import UI from "@renderer/components/UI/UI"
 import SceneProvider from "@renderer/states/Context"
-import CanvasRender from "./CanvasRender"
+import Scene from "../components/Game/Scene"
 
 function App(): JSX.Element {
     return (
         <SceneProvider>
-            <CanvasRender />
+            <Scene />
             <UI.Layer>
                 <UI.CameraControls />
             </UI.Layer>
